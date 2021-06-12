@@ -12,10 +12,11 @@ class Solution:
             nonlocal ans
             if not root:
                 return
-            ans = max(ans,max_-root.val)
-            ans = max(ans,root.val - min_)
+            ans = max(ans,abs(max_-root.val))
+            ans = max(ans,abs(root.val - min_))
             dfs(root.left,max(max_,root.val),min(min_,root.val))
             dfs(root.right,max(max_,root.val),min(min_,root.val))
+        dfs(root,root.val,root.val)            
         # def dfs(root,max_,min_):
         #     if not root:
         #         return max_ - min_
